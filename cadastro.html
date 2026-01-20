@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro - FinançasPro</title>
+    <link rel="stylesheet" href="css/auth-style.css" />
+  </head>
+  <body class="auth-page">
+    <div class="auth-container">
+      <div class="auth-card">
+        <div class="auth-header">
+          <div class="logo">
+            <h2>Finanças<span>Pro</span></h2>
+          </div>
+          <h1>Crie sua conta</h1>
+          <p>Comece a organizar sua vida financeira hoje mesmo.</p>
+        </div>
+        <form class="auth-form" id="register-form">
+          <div class="form-group">
+            <label for="name">Nome Completo</label>
+            <input type="text" id="name" placeholder="Seu nome" required />
+          </div>
+          <div class="form-group">
+            <label for="email">E-mail</label>
+            <input
+              type="email"
+              id="email"
+              placeholder="seu@email.com"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="password">Senha</label>
+            <input
+              type="password"
+              id="password"
+              placeholder="••••••••"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="confirm-password">Confirmar Senha</label>
+            <input
+              type="password"
+              id="confirm-password"
+              placeholder="••••••••"
+              required
+            />
+          </div>
+          <button type="submit" class="btn-auth">Criar Conta</button>
+        </form>
+        <div class="auth-footer">
+          <p>Já tem uma conta? <a href="login.html">Faça login</a></p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      async function checkAuth() {
+        try {
+          const res = await fetch("http://localhost:3000/auth/me", {
+            credentials: "include",
+          });
+          if (res.ok) {
+            window.location.href = "/home.html";
+          }
+        } catch (err) {}
+      }
+      checkAuth();
+    </script>
+    <script type="module" src="js/auth-script.js"></script>
+  </body>
+</html>

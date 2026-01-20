@@ -1,0 +1,604 @@
+:root {
+  --primary-color: #4361ee;
+  --secondary-color: #3f37c9;
+  --success-color: #4cc9f0;
+  --danger-color: #f72585;
+  --bg-color: #f8f9fa;
+  --sidebar-color: #ffffff;
+  --text-main: #2b2d42;
+  --text-muted: #8d99ae;
+  --card-bg: #ffffff;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  --border-radius: 16px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+}
+
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 260px;
+  background-color: var(--sidebar-color);
+  padding: 2rem;
+  border-right: 1px solid #edf2f4;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo h2 {
+  color: var(--primary-color);
+  margin-bottom: 3rem;
+  font-weight: 800;
+}
+
+.logo span {
+  color: var(--text-main);
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav li {
+  margin-bottom: 1rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--text-muted);
+  font-weight: 500;
+  display: block;
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+nav li.active a,
+nav a:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  padding: 2rem 3rem;
+  overflow-y: auto;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.5rem;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  background-color: #ddd;
+  border-radius: 50%;
+}
+
+/* Cards Grid */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.card {
+  background-color: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+}
+
+.card h3 {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.card .value {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.trend {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.trend.positive {
+  color: #2ec4b6;
+}
+.trend.negative {
+  color: var(--danger-color);
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background-color: #edf2f4;
+  border-radius: 4px;
+  margin-top: 1rem;
+}
+
+.progress {
+  height: 100%;
+  background-color: var(--primary-color);
+  border-radius: 4px;
+}
+
+/* Expenses Management */
+.expenses-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+  align-items: start;
+}
+
+.expense-section {
+  background-color: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+}
+
+.badge {
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.badge.success {
+  background-color: #d1e7dd;
+  color: #0f5132;
+}
+.badge.warning {
+  background-color: #fff3cd;
+  color: #664d03;
+}
+
+.title-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.expense-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid #f1f3f5;
+}
+
+.expense-item:last-child {
+  border-bottom: none;
+}
+
+.expense-info h4 {
+  font-size: 0.95rem;
+  margin-bottom: 0.2rem;
+}
+.expense-info span {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.expense-action {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.expense-value {
+  font-weight: 600;
+  color: var(--danger-color);
+}
+
+.status-icon.success {
+  color: #2ec4b6;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.add-expense-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px dashed var(--text-muted);
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.add-expense-btn:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  background-color: rgba(67, 97, 238, 0.05);
+}
+
+.complete-btn {
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  border: 1px solid var(--primary-color);
+  background-color: transparent;
+  color: var(--primary-color);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.complete-btn:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-overlay.active .modal-content {
+  transform: translateY(0);
+}
+
+.modal-content {
+  background-color: var(--card-bg);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  width: 100%;
+  max-width: 450px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transform: translateY(-20px);
+  transition: all 0.3s ease;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.close-modal {
+  background: none;
+  border: none;
+
+  font-size: 2.2rem; /* 🔴 AQUI está o tamanho do X */
+  font-weight: 400;
+  line-height: 1;
+
+  color: var(--text-muted);
+  cursor: pointer;
+
+  padding: 0; /* remove espaço extra */
+}
+
+.close-modal:hover {
+  color: var(--primary-color);
+}
+
+.modal-form .form-group {
+  margin-bottom: 1.2rem;
+}
+
+.modal-form label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--text-main);
+}
+
+.modal-form input,
+.modal-form select {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+}
+
+.modal-form input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.btn-cancel {
+  background: none;
+  border: none;
+  padding: 0.8rem 1.5rem;
+
+  font: inherit;
+  font-weight: 600;
+  color: var(--text-muted);
+
+  cursor: pointer;
+}
+
+.btn-cancel:hover {
+  color: var(--primary-color);
+}
+.btn-save {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-save:hover {
+  background-color: var(--secondary-color);
+}
+
+.add-expense-btn {
+  text-decoration: none;
+}
+
+/* Notifications Styles */
+#notification-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.notification {
+  min-width: 280px;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  background-color: white;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  animation: slideIn 0.4s ease forwards;
+  border-left: 5px solid transparent;
+}
+
+.notification.success {
+  border-left-color: #2ec4b6;
+}
+
+.notification.error {
+  border-left-color: var(--danger-color);
+}
+
+.notification-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: white;
+}
+
+.success .notification-icon {
+  background-color: #2ec4b6;
+}
+.error .notification-icon {
+  background-color: var(--danger-color);
+}
+
+.notification-message {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.fade-out {
+  transform: translateX(100%);
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+/* Content Grid */
+.content-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 1.5rem;
+}
+
+section {
+  background-color: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.view-all {
+  font-size: 0.85rem;
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* Investment List */
+.invest-item {
+  display: flex;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid #f1f3f5;
+}
+
+.invest-item:last-child {
+  border-bottom: none;
+}
+
+.icon-box {
+  width: 45px;
+  height: 45px;
+  border-radius: 12px;
+  margin-right: 1rem;
+}
+
+.crypto {
+  background-color: #fff3cd;
+}
+.stocks {
+  background-color: #d1e7ff;
+}
+.fixed {
+  background-color: #d1e7dd;
+}
+
+.invest-info {
+  flex: 1;
+}
+.invest-info h4 {
+  font-size: 1rem;
+  margin-bottom: 0.2rem;
+}
+.invest-info span {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.invest-value {
+  text-align: right;
+}
+.invest-value p {
+  font-weight: 600;
+}
+
+/* Goals Section */
+.goal-card {
+  margin-bottom: 1.5rem;
+}
+
+.goal-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.goal-header h4 {
+  font-size: 0.95rem;
+}
+.goal-header span {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.goal-details {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+.add-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  border: none;
+  background-color: var(--primary-color);
+  color: white;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+@media (max-width: 1024px) {
+  .content-grid,
+  .expenses-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+    padding: 1rem;
+  }
+  .main-content {
+    padding: 1.5rem;
+  }
+}
