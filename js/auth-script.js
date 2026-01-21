@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
           password: password,
         };
         await fetchApi(
-          "http://localhost:3000/usuarios/create",
+          "http://localhost:3000/auth/cadastro",
           "POST",
           data,
           "include",
