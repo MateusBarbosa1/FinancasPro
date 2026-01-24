@@ -54,9 +54,18 @@ document.addEventListener("DOMContentLoaded", () => {
   if (cancelSalary) cancelSalary.addEventListener("click", closeModal);
 
   if (salaryForm) {
-    salaryForm.addEventListener("submit", (e) => {
+    salaryForm.addEventListener("submit", async (e) => {
       e.preventDefault();
       const valor = document.getElementById("salary-value").value;
+      const data = salaryDateInput.value;
+
+      await fetch("http://localhost:3000/usuarios/update", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ salario: valor }),
+        credentials: "include",
+      });
+
       showNotification(
         `Salário de R$ ${valor} adicionado com sucesso!`,
         "success",
