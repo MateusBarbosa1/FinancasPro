@@ -56,6 +56,8 @@ async function readObjetivos() {
     const objetivos = await fetchApi(
       "http://localhost:3000/objetivos/read",
       "GET",
+      undefined,
+      "include",
     );
 
     renderObjetivos(objetivos);
@@ -106,6 +108,7 @@ function createObjetivo() {
         "http://localhost:3000/objetivos/create",
         "POST",
         objetivo,
+        "include",
       );
 
       showNotification("Objetivo criado com sucesso!", "success");

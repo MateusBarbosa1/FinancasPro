@@ -104,6 +104,8 @@ async function readDespesa() {
     const despesas = await fetchApi(
       "http://localhost:3000/despesas/read",
       "GET",
+      undefined,
+      "include",
     );
     renderDespesas(despesas);
     calcularTotais(despesas);
@@ -165,7 +167,12 @@ function createDespesa() {
     };
 
     try {
-      await fetchApi("http://localhost:3000/despesas/create", "POST", despesa);
+      await fetchApi(
+        "http://localhost:3000/despesas/create",
+        "POST",
+        despesa,
+        "include",
+      );
 
       showNotification("Despesa criada com sucesso!", "success");
       form.reset();
@@ -188,6 +195,8 @@ export async function adicionarObjetivosNoSelect() {
     const objetivos = await fetchApi(
       "http://localhost:3000/objetivos/read",
       "GET",
+      undefined,
+      "include",
     );
 
     objetivos.forEach((obj) => {

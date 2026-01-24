@@ -16,7 +16,9 @@ document.addEventListener("DOMContentLoaded", async () => {
   const saldoAtualDOM = document.querySelector(".balance > .value");
   const gastosTotaisDOM = document.querySelector(".expenses > .value");
 
-  const despesasREQ = await fetch("http://localhost:3000/despesas/read");
+  const despesasREQ = await fetch("http://localhost:3000/despesas/read", {
+    credentials: "include",
+  });
   const despesas = await despesasREQ.json();
   despesas.forEach((d) => {
     if (d.state == "pago") {

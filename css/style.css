@@ -159,7 +159,6 @@ header {
   grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
   margin-bottom: 2.5rem;
-  align-items: start;
 }
 
 .expense-section {
@@ -242,6 +241,7 @@ header {
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
+  text-decoration: none;
 }
 
 .add-expense-btn:hover {
@@ -285,13 +285,10 @@ header {
   backdrop-filter: blur(4px);
 }
 
+.modal-overlay:target,
 .modal-overlay.active {
   opacity: 1;
   visibility: visible;
-}
-
-.modal-overlay.active .modal-content {
-  transform: translateY(0);
 }
 
 .modal-content {
@@ -305,6 +302,11 @@ header {
   transition: all 0.3s ease;
 }
 
+.modal-overlay:target .modal-content,
+.modal-overlay.active .modal-content {
+  transform: translateY(0);
+}
+
 .modal-header {
   display: flex;
   justify-content: space-between;
@@ -313,21 +315,13 @@ header {
 }
 
 .close-modal {
+  font-size: 2rem;
+  text-decoration: none;
+  color: var(--text-muted);
+  line-height: 1;
   background: none;
   border: none;
-
-  font-size: 2.2rem; /* 🔴 AQUI está o tamanho do X */
-  font-weight: 400;
-  line-height: 1;
-
-  color: var(--text-muted);
   cursor: pointer;
-
-  padding: 0; /* remove espaço extra */
-}
-
-.close-modal:hover {
-  color: var(--primary-color);
 }
 
 .modal-form .form-group {
@@ -364,20 +358,12 @@ header {
 }
 
 .btn-cancel {
-  background: none;
-  border: none;
-  padding: 0.8rem 1.5rem;
-
-  font: inherit;
-  font-weight: 600;
+  text-decoration: none;
   color: var(--text-muted);
-
-  cursor: pointer;
+  padding: 0.8rem 1.5rem;
+  font-weight: 600;
 }
 
-.btn-cancel:hover {
-  color: var(--primary-color);
-}
 .btn-save {
   background-color: var(--primary-color);
   color: white;
@@ -391,10 +377,6 @@ header {
 
 .btn-save:hover {
   background-color: var(--secondary-color);
-}
-
-.add-expense-btn {
-  text-decoration: none;
 }
 
 /* Notifications Styles */
@@ -424,7 +406,6 @@ header {
 .notification.success {
   border-left-color: #2ec4b6;
 }
-
 .notification.error {
   border-left-color: var(--danger-color);
 }
@@ -601,4 +582,52 @@ section {
   .main-content {
     padding: 1.5rem;
   }
+}
+
+/* Estilos para o Botão de Salário Recebido */
+.card-header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.card-header-flex h3 {
+  margin-bottom: 0 !important;
+}
+
+.btn-received {
+  background-color: #2ec4b6;
+  color: white;
+  border: none;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(46, 196, 182, 0.2);
+}
+
+.btn-received:hover {
+  background-color: #28af9f;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(46, 196, 182, 0.3);
+}
+
+.btn-received:active {
+  transform: translateY(0);
+}
+
+.btn-received.active {
+  background-color: #8d99ae;
+  cursor: default;
+  box-shadow: none;
+}
+.close-salary-modal,
+.close-goal-modal {
+  background-color: none;
+  border: none;
+  cursor: pointer;
+  font-size: 30px;
 }

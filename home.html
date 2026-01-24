@@ -38,21 +38,30 @@
         <section class="cards-grid">
           <div class="card balance">
             <h3>Saldo Atual</h3>
-            <p class="value">R$ 5.240,50</p>
-            <span class="trend positive">+2.5% este mês</span>
+            <p class="value">R$ 0,00</p>
+            <!-- <span class="trend positive">+2.5% este mês</span> -->
           </div>
 
           <div class="card salary">
-            <h3>Salário</h3>
-            <p class="value">R$ 8.500,00</p>
-            <span class="date">Recebido em 05/01</span>
+            <div class="card-header-flex">
+              <h3>Salário</h3>
+              <button
+                type="button"
+                class="btn-received"
+                id="btn-salary-received"
+              >
+                Atualizar
+              </button>
+            </div>
+            <p class="value">R$ 0,00</p>
+            <span class="date">Recebido em ...</span>
           </div>
 
           <div class="card expenses">
             <h3>Gastos Totais</h3>
-            <p class="value">R$ 3.259,50</p>
+            <p class="value">R$ 0,00</p>
             <div class="progress-bar">
-              <div class="progress" style="width: 38%"></div>
+              <div class="progress" style="width: 0%"></div>
             </div>
           </div>
         </section>
@@ -136,21 +145,21 @@
 
             <div class="goal-card">
               <div class="goal-header">
-                <h4>Viagem Europa</h4>
-                <span>75%</span>
+                <h4></h4>
+                <span></span>
               </div>
               <div class="progress-bar">
-                <div class="progress" style="width: 75%"></div>
+                <div class="progress" style="width: 0%"></div>
               </div>
             </div>
 
             <div class="goal-card">
               <div class="goal-header">
-                <h4>Reserva de Emergência</h4>
-                <span>40%</span>
+                <h4></h4>
+                <span></span>
               </div>
               <div class="progress-bar">
-                <div class="progress" style="width: 40%"></div>
+                <div class="progress" style="width: 0%"></div>
               </div>
             </div>
           </section>
@@ -254,6 +263,50 @@
       </div>
     </div>
 
+    <!-- MODAL SALÁRIO -->
+    <div id="modal-salario" class="modal-overlay">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Adicionar Salário</h2>
+          <button
+            type="button"
+            class="close-salary-modal"
+            id="close-salary-modal"
+          >
+            &times;
+          </button>
+        </div>
+
+        <form class="modal-form" id="salary-form">
+          <div class="form-group">
+            <label for="salary-value">Valor do Salário (R$)</label>
+            <input
+              type="number"
+              id="salary-value"
+              name="salary-value"
+              step="0.01"
+              value="8500.00"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="salary-date">Data de Recebimento</label>
+            <input type="date" id="salary-date" name="salary-date" required />
+          </div>
+
+          <div class="form-actions">
+            <button type="button" class="btn-cancel" id="cancel-salary">
+              Cancelar
+            </button>
+            <button type="submit" class="btn-save">
+              Confirmar e Adicionar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
     <script>
       async function checkAuth() {
         try {
@@ -269,8 +322,10 @@
       }
       checkAuth();
     </script>
+
     <script type="module" src="js/home.js"></script>
     <script type="module" src="js/despesas.js"></script>
     <script type="module" src="js/objetivos.js"></script>
+    <script type="module" src="js/modal-salario.js"></script>
   </body>
 </html>
