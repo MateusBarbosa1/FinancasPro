@@ -1,7 +1,10 @@
 document.addEventListener("DOMContentLoaded", async () => {
-  const res = await fetch("http://localhost:3000/usuarios/read/unique", {
-    credentials: "include",
-  });
+  const res = await fetch(
+    "https://gestor-financas-api.onrender.com:3000/usuarios/read/unique",
+    {
+      credentials: "include",
+    },
+  );
   const data = await res.json();
 
   const usuarioNameDOM = document.querySelector(".user-info span");
@@ -16,9 +19,12 @@ document.addEventListener("DOMContentLoaded", async () => {
   const saldoAtualDOM = document.querySelector(".balance > .value");
   const gastosTotaisDOM = document.querySelector(".expenses > .value");
 
-  const despesasREQ = await fetch("http://localhost:3000/despesas/read", {
-    credentials: "include",
-  });
+  const despesasREQ = await fetch(
+    "https://gestor-financas-api.onrender.com:3000/despesas/read",
+    {
+      credentials: "include",
+    },
+  );
   const despesas = await despesasREQ.json();
   despesas.forEach((d) => {
     if (d.state == "pago") {
@@ -31,8 +37,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   const porcentagemGastos = (gastosTotais * 100) / data.salario;
 
   usuarioNameDOM.innerText = `Olá, ${usuarioName}`;
-  usuarioSalarioDOM.innerText = `R$ ${usuarioSalario}`;
-  saldoAtualDOM.innerText = `R$ ${saldoAtual}`;
-  gastosTotaisDOM.innerText = `R$ ${gastosTotais}`;
+  usuarioSalarioDOM.innerText = `R$ ${usuarioSalario},00`;
+  saldoAtualDOM.innerText = `R$ ${saldoAtual},00`;
+  gastosTotaisDOM.innerText = `R$ ${gastosTotais},00`;
   porcentagemGastosDOM.style.width = `${porcentagemGastos}%`;
 });

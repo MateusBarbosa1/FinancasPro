@@ -54,7 +54,7 @@ function renderObjetivos(objetivos) {
 async function readObjetivos() {
   try {
     const objetivos = await fetchApi(
-      "http://localhost:3000/objetivos/read",
+      "https://gestor-financas-api.onrender.com:3000/objetivos/read",
       "GET",
       undefined,
       "include",
@@ -105,7 +105,7 @@ function createObjetivo() {
 
     try {
       await fetchApi(
-        "http://localhost:3000/objetivos/create",
+        "https://gestor-financas-api.onrender.com:3000/objetivos/create",
         "POST",
         objetivo,
         "include",
@@ -114,7 +114,7 @@ function createObjetivo() {
       showNotification("Objetivo criado com sucesso!", "success");
       form.reset();
       modal.classList.remove("active");
-      readObjetivos();
+      window.location.reload();
     } catch {
       showNotification("Erro ao criar objetivo", "error");
       modal.classList.remove("active");

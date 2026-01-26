@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
           password: password.value,
         };
         await fetchApi(
-          "http://localhost:3000/auth/login",
+          "https://gestor-financas-api.onrender.com:3000/auth/login",
           "POST",
           data,
           "include",
@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
           password: password,
         };
         await fetchApi(
-          "http://localhost:3000/auth/cadastro",
+          "https://gestor-financas-api.onrender.com:3000/auth/cadastro",
           "POST",
           data,
           "include",

@@ -9,9 +9,12 @@
     <script>
       async function checkAuth() {
         try {
-          const res = await fetch("http://localhost:3000/auth/me", {
-            credentials: "include",
-          });
+          const res = await fetch(
+            "https://gestor-financas-api.onrender.com:3000/auth/me",
+            {
+              credentials: "include",
+            },
+          );
           if (res.ok) {
             window.location.href = "/home.html";
           } else {
