@@ -113,7 +113,7 @@ function renderDespesas(despesas) {
 export async function readDespesa() {
   try {
     const despesas = await fetchApi(
-      "https://gestor-financas-api.onrender.com:3000/despesas/read",
+      "https://gestor-financas-api.onrender.com/despesas/read",
       "GET",
       undefined,
       "include",
@@ -131,7 +131,7 @@ export async function readDespesa() {
 export async function pagarDespesa(id) {
   try {
     await fetchApi(
-      `https://gestor-financas-api.onrender.com:3000/despesas/update/${id}`,
+      `https://gestor-financas-api.onrender.com/despesas/update/${id}`,
       "PATCH",
       {
         state: "pago",
@@ -151,7 +151,7 @@ export async function pagarDespesa(id) {
 export async function deletarDespesa(id) {
   try {
     await fetchApi(
-      `https://gestor-financas-api.onrender.com:3000/despesas/delete/${id}`,
+      `https://gestor-financas-api.onrender.com/despesas/delete/${id}`,
       "DELETE",
       undefined,
       "include",
@@ -207,7 +207,7 @@ function createDespesa() {
       if (id) {
         // Atualizar
         await fetchApi(
-          `https://gestor-financas-api.onrender.com:3000/despesas/update/${id}`,
+          `https://gestor-financas-api.onrender.com/despesas/update/${id}`,
           "PATCH",
           despesa,
           "include",
@@ -217,7 +217,7 @@ function createDespesa() {
       } else {
         // Criar
         await fetchApi(
-          "https://gestor-financas-api.onrender.com:3000/despesas/create",
+          "https://gestor-financas-api.onrender.com/despesas/create",
           "POST",
           despesa,
           "include",
@@ -246,7 +246,7 @@ export async function adicionarObjetivosNoSelect() {
 
   try {
     const objetivos = await fetchApi(
-      "https://gestor-financas-api.onrender.com:3000/objetivos/read",
+      "https://gestor-financas-api.onrender.com/objetivos/read",
       "GET",
       undefined,
       "include",

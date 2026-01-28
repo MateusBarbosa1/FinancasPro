@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", async () => {
   const res = await fetch(
-    "https://gestor-financas-api.onrender.com:3000/usuarios/read/unique",
+    "https://gestor-financas-api.onrender.com/usuarios/read/unique",
     {
       credentials: "include",
     },
@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const gastosTotaisDOM = document.querySelector(".expenses > .value");
 
   const despesasREQ = await fetch(
-    "https://gestor-financas-api.onrender.com:3000/despesas/read",
+    "https://gestor-financas-api.onrender.com/despesas/read",
     {
       credentials: "include",
     },

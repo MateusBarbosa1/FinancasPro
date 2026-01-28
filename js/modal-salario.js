@@ -59,15 +59,12 @@ document.addEventListener("DOMContentLoaded", () => {
       const valor = document.getElementById("salary-value").value;
       const data = salaryDateInput.value;
 
-      await fetch(
-        "https://gestor-financas-api.onrender.com:3000/usuarios/update",
-        {
-          method: "PATCH",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ salario: valor }),
-          credentials: "include",
-        },
-      );
+      await fetch("https://gestor-financas-api.onrender.com/usuarios/update", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ salario: valor }),
+        credentials: "include",
+      });
 
       showNotification(
         `Salário de R$ ${valor} adicionado com sucesso!`,

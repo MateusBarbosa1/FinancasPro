@@ -54,7 +54,7 @@ function renderObjetivos(objetivos) {
 async function readObjetivos() {
   try {
     const objetivos = await fetchApi(
-      "https://gestor-financas-api.onrender.com:3000/objetivos/read",
+      "https://gestor-financas-api.onrender.com/objetivos/read",
       "GET",
       undefined,
       "include",
@@ -105,7 +105,7 @@ function createObjetivo() {
 
     try {
       await fetchApi(
-        "https://gestor-financas-api.onrender.com:3000/objetivos/create",
+        "https://gestor-financas-api.onrender.com/objetivos/create",
         "POST",
         objetivo,
         "include",
