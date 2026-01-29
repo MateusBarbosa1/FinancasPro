@@ -1,30 +1,114 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FinançasPro</title>
+    <title>FinançasPro - Gestão Inteligente</title>
+    <link rel="stylesheet" href="css/landing-style.css" />
   </head>
   <body>
-    <script>
-      async function checkAuth() {
-        try {
-          const res = await fetch(
-            "https://gestor-financas-api.onrender.com/auth/me",
-            {
-              credentials: "include",
-            },
-          );
-          if (res.ok) {
-            window.location.href = "/home.html";
-          } else {
-            window.location.href = "/login.html";
-          }
-        } catch (err) {
-          window.location.href = "/login.html";
-        }
-      }
-      checkAuth();
-    </script>
+    <!-- Loader Overlay (Aparece enquanto o servidor carrega) -->
+    <div id="loader-overlay">
+      <div class="loader-content">
+        <div class="spinner"></div>
+        <h2>Iniciando seu Dashboard...</h2>
+        <p>Estamos preparando tudo para você.</p>
+      </div>
+    </div>
+
+    <!-- Landing Content -->
+    <div class="landing-container">
+      <header class="landing-header">
+        <div class="logo">
+          <h2>Finanças<span>Pro</span></h2>
+        </div>
+        <a href="login.html" class="btn-login">Acessar Agora</a>
+      </header>
+
+      <main>
+        <section class="hero">
+          <h1>Assuma o controle total da sua <span>vida financeira</span></h1>
+          <p>
+            Uma plataforma completa para gerenciar gastos, planejar
+            investimentos e alcançar seus objetivos de forma simples e
+            intuitiva.
+          </p>
+          <div class="hero-buttons">
+            <a href="cadastro.html" class="btn-primary"
+              >Começar Gratuitamente</a
+            >
+            <a href="#features" class="btn-secondary">Conhecer Recursos</a>
+          </div>
+        </section>
+
+        <section class="dashboard-preview">
+          <div class="preview-window">
+            <div class="window-header">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <div class="preview-image">
+              <div class="skeleton-dashboard">
+                <div class="sk-sidebar">
+                  <div class="sk-line"></div>
+                  <div class="sk-line"></div>
+                  <div class="sk-line"></div>
+                </div>
+                <div class="sk-content">
+                  <div class="sk-cards">
+                    <div class="sk-card"></div>
+                    <div class="sk-card"></div>
+                    <div class="sk-card"></div>
+                  </div>
+                  <div class="sk-main-area"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="features" class="features">
+          <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3>Gestão de Gastos</h3>
+            <p>
+              Acompanhe seus gastos fixos e variáveis em tempo real com gráficos
+              intuitivos.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">💰</div>
+            <h3>Salário e Renda</h3>
+            <p>
+              Registre suas entradas e veja seu saldo atualizar automaticamente
+              com um clique.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📈</div>
+            <h3>Investimentos</h3>
+            <p>
+              Monitore sua carteira de criptoativos, ações e renda fixa em um só
+              lugar.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🎯</div>
+            <h3>Objetivos</h3>
+            <p>
+              Crie metas para seus sonhos e acompanhe o progresso da sua
+              economia.
+            </p>
+          </div>
+        </section>
+      </main>
+
+      <footer class="landing-footer">
+        <p>&copy; 2026 FinançasPro. Todos os direitos reservados.</p>
+      </footer>
+    </div>
+
+    <script src="js/landing-script.js"></script>
   </body>
 </html>
