@@ -3,27 +3,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
   async function checkServerAndRedirect() {
     try {
-      const response = await fetch(
-        "https://gestor-financas-api.onrender.com/auth/me",
-        {
-          credentials: "include",
-        },
+      const res = await fetch(
+        "https://gestor-financas-api.onrender.com/api/heath",
       );
 
-      setTimeout(() => {
-        loader.classList.add("fade-out");
-        if (response.ok) {
-          window.location.href = "home.html";
-        }
-      }, 2000);
+      if (res.ok) {
+        // Backend pronto → esconde loader e redireciona
+        loader.style.display = "none";
+      } else {
+        throw new Error("Servidor não pronto");
+      }
     } catch (error) {
       console.log("Servidor ainda carregando...");
-      setTimeout(checkServerAndRedirect, 3000);
+      setTimeout(checkServerAndRedirect, 3000); // tenta de novo
     }
   }
 
   checkServerAndRedirect();
 
+  // Scroll suave
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
       e.preventDefault();
